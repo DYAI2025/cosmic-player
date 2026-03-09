@@ -8,6 +8,10 @@ export interface Track {
   duration?: number;
   mimeType: string;
   sizeBytes: number;
+  /** true for built-in celestial tracks — no token required */
+  isPublic?: boolean;
+  /** Phase / album label shown as group header in the track list */
+  group?: string;
 }
 
 export const useAudioPlayer = () => {

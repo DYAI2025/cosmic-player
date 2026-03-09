@@ -1,0 +1,119 @@
+{
+  "phases": [
+    {
+      "id": "mystic",
+      "title": "Mystic Ambient",
+      "description": "Kosmische Transzendenz und das Sternengewebe.",
+      "accent": "cyan",
+      "cover": "https://r2-bucket.flowith.net/f/c9418b8a55b684d7/soni_nocte_picti_album_cover_index_0%402048x2048.jpeg",
+      "tracks": [
+        {
+          "title": "Elysian Transition",
+          "url": "https://v3b.fal.media/files/b/0a9186b4/OMplz7-8dFYXwBEw7lvZ6_output.mp3",
+          "lyrics": "The cold is breathing, the ritual is deep.\nSecrets of the elements that the guardians keep.\nA delicate dance of the wood and the fire,\nRising in a chorus, a celestial choir.\n\nElysian transition, the soul starts to wake.\nEvery choice a rhythm, every breath a state."
+        },
+        {
+          "title": "Aetheric Resonance",
+          "url": "https://v3b.fal.media/files/b/0a9186b2/HZGLCExhQYDSS3oas2yCe_output.mp3",
+          "lyrics": "In the silence of the void, a spark begins to glow.\nPatterns of the ancient stars, in a modern remix flow.\nNo thunderous drums, just the whisper of the light,\nGuiding every traveler through the digital night."
+        },
+        {
+          "title": "Geometry of Grace",
+          "url": "https://v3b.fal.media/files/b/0a9186b2/qbk8f3k1SgZEDY3N1ms7E_output.mp3",
+          "lyrics": "Lines intersecting in the crystal sphere.\nThe law of the cosmos is perfect and clear.\nLeft meets the right in a mirror of gold.\nThe secrets of balance are finally told."
+        }
+      ]
+    },
+    {
+      "id": "aurora",
+      "title": "AURORA Echoes",
+      "description": "Nordische Einflüsse und rituelle Natur-Echos.",
+      "accent": "emerald",
+      "cover": "https://r2-bucket.flowith.net/f/d36790f5a820d5c6/soni_nocte_picti_album_cover_index_1%402048x2048.jpeg",
+      "tracks": [
+        {
+          "title": "Cosmic Birth",
+          "url": "https://v3b.fal.media/files/b/0a917fc2/uarpkAts8ubMdoKAIUCgU_output.mp3",
+          "lyrics": "Hum, hum, hum... Deep cosmic hum.\nEthereal shimmering textures, soft celestial bells.\nContinuous, slow, void resonance."
+        },
+        {
+          "title": "Bazodiac's Breath",
+          "url": "https://v3b.fal.media/files/b/0a917fc0/LQVbiDtlIYDBtkuSxuqe__output.mp3",
+          "lyrics": "From bits to blood, from code to soul.\nThe filament stretched, becoming whole.\nA lattice of light, a neural sea,\nDancing in silent geometry."
+        },
+        {
+          "title": "Rite of Emergence",
+          "url": "https://v3b.fal.media/files/b/0a917fc0/7r6RAaa1iPesEBzXdgn1s_output.mp3",
+          "lyrics": "The engine wakes, the cold breeze.\nPioneer stars in the obsidian night.\nLeviathan whispers through the neon light.\nCircuits reposting with ancient blood."
+        }
+      ]
+    },
+    {
+      "id": "celestial",
+      "title": "Celestial Trip-Hop",
+      "description": "Die Verschmelzung von Beat und Sternenstaub.",
+      "accent": "violet",
+      "cover": "https://r2-bucket.flowith.net/f/1cbdb01895997fca/soni_nocte_picti_album_cover_index_2%402048x2048.jpeg",
+      "tracks": [
+        {
+          "title": "Cosmic Heartbeat",
+          "url": "https://v3b.fal.media/files/b/0a917f6d/cxt6zEFL8_ISNwQhhnohX_output.mp3",
+          "lyrics": "Ein Schlag, ein Beben im Samt der Nacht.\nAus Sternenstaub und Licht gemacht.\nThe pulse is old, a rhythm deep,\nWhile galaxies in silence sleep."
+        },
+        {
+          "title": "Astral Reminiscence",
+          "url": "https://v3b.fal.media/files/b/0a917f6d/FSOwWW9Q9C8tQngAUwsVo_output.mp3",
+          "lyrics": "Ich gehe Wege ohne Grund,\nEin stummer Schrei aus meinem Mund.\nThe roads are made of ghost-light here,\nWhere every memory turns to fear."
+        },
+        {
+          "title": "The Galactic Garden",
+          "url": "https://v3b.fal.media/files/b/0a917f6a/YyMCv0uHQNDoTat6zDtYl_output.mp3",
+          "lyrics": "Tauch' ein in den Garten aus flüssigem Gold,\nWo das Licht der Planeten sanft abwärts rollt.\nSubmerged in light, the water sings,\nOf ancient stars and hidden things."
+        }
+      ]
+    },
+    {
+      "id": "reality",
+      "title": "Beats of Reality",
+      "description": "Minimalistische Schatten und die Zerbrechlichkeit des Seins.",
+      "accent": "slate",
+      "cover": "https://images.unsplash.com/photo-1550684848-fac1c5b4e853?auto=format&fit=crop&q=80&w=2048",
+      "tracks": [
+        {
+          "title": "Darkness Is a Mirror",
+          "url": "https://v3b.fal.media/files/b/0a91870c/3uhV5F98Is-dyjaVVDRQi_output.mp3",
+          "lyrics": "Look into the void, what do you see?\nA shadow reflecting the truth of me.\nNo light to guide, no stars to follow,\nIn the empty space, where the heart is hollow.\nDarkness is a mirror, showing what we hide,\nA cold embrace, where the soul can slide."
+        },
+        {
+          "title": "Glass Shatters",
+          "url": "https://v3b.fal.media/files/b/0a91870b/FqMw-WHr-o8I8cmC1WydO_output.mp3",
+          "lyrics": "Sharp edges of a broken dream,\nNothing is ever what it might seem.\nThe clarity breaks with a sudden sound,\nFragments of reality litter the ground.\nGlass shatters, the vision is gone,\nWait for the dark before the dawn."
+        }
+      ]
+    },
+    {
+      "id": "biophilic",
+      "title": "Biophilic Sacred Ambient",
+      "description": "Organische Resonanz und die Symbiose aus Myzel und Licht.",
+      "accent": "lime",
+      "cover": "https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?auto=format&fit=crop&q=80&w=2048",
+      "tracks": [
+        {
+          "title": "Sol Bio Lux",
+          "url": "https://v3b.fal.media/files/b/0a91872d/oqt4q2IsBy0Ennqutjozt_output.mp3",
+          "lyrics": "Sunlight filtering through the canopy of glass.\nPhotosynthesis of the spirit, as the hours pass.\nGreen gold, liquid sun, the breath of the leaves.\nA sacred geometry that nature weaves."
+        },
+        {
+          "title": "Celestial Bloom in the Emerald Deep",
+          "url": "https://v3b.fal.media/files/b/0a91872d/Li9dixvNd7F1r9AN5Km2E_output.mp3",
+          "lyrics": "Petals opening in the silence of the moss.\nCounting the gains, releasing the loss.\nEmerald deep, where the stars come to rest,\nIn the heart of the forest, the soul is a guest."
+        },
+        {
+          "title": "Sacred Water Flow Through Mycelium",
+          "url": "https://v3b.fal.media/files/b/0a91872c/D31dgMvcreRXQIeOSFV2k_output.mp3",
+          "lyrics": "Roots reaching out, connected and true.\nThe water is ancient, the rhythm is new.\nWhispers of the earth, pulsing in the ground,\nA symphony of life, without a single sound."
+        }
+      ]
+    }
+  ]
+}

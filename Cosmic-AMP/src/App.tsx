@@ -15,6 +15,21 @@ import { CyberButton } from './components/ui/CyberButton';
 import { TrackList } from './components/TrackList';
 import { PlayerControls } from './components/PlayerControls';
 import { adminEmail, isSupabaseConfigured, supabase, tracksBucket } from './lib/supabase';
+import celestialData from './data/celestial_tracks.json';
+
+/** Celestial Garden tracks — built-in, always publicly accessible */
+const celestialTracks: Track[] = celestialData.phases.flatMap((phase, _pi) =>
+  phase.tracks.map((t, ti) => ({
+    id: `celestial-${phase.id}-${ti}`,
+    name: t.title,
+    filePath: t.url,
+    fileUrl: t.url,
+    mimeType: 'audio/mpeg',
+    sizeBytes: 0,
+    isPublic: true,
+    group: phase.title,
+  })),
+);
 
 type DbTrack = {
   id: string;
@@ -68,17 +83,23 @@ export function App() {
   );
 
   const canAccess = useCallback(
-    (track: Track) => isAdmin || unlockedTrackIds.has(track.id),
+    (track: Track) => track.isPublic || isAdmin || unlockedTrackIds.has(track.id),
     [isAdmin, unlockedTrackIds],
   );
 
   const loadTracks = useCallback(async () => {
     const sb = supabase;
-    if (!sb) return;
+    // Always show celestial tracks; Supabase tracks are additive
+    if (!sb) {
+      setTracks([...celestialTracks]);
+      setSelectedTrackId((prev) => prev || celestialTracks[0]?.id || null);
+      return;
+    }
     setIsLoading(true);
     const { data, error } = await sb.from('tracks').select('*').order('created_at', { ascending: false });
     if (error) {
       setTokenMessage(`Track load failed: ${error.message}`);
+      setTracks([...celestialTracks]);
       setIsLoading(false);
       return;
     }
@@ -91,25 +112,30 @@ export function App() {
       duration: track.duration || 0,
       mimeType: track.mime_type,
       sizeBytes: track.size_bytes,
+      group: 'My Vault',
     }));
 
-    setTracks(mapped);
-    setSelectedTrackId((prev) => prev || mapped[0]?.id || null);
+    // Merge: celestial built-ins first, then Supabase uploads
+    const merged = [...celestialTracks, ...mapped];
+    setTracks(merged);
+    setSelectedTrackId((prev) => prev || merged[0]?.id || null);
     setIsLoading(false);
   }, []);
 
   useEffect(() => {
     const sb = supabase;
-    if (!sb) return;
 
     const init = async () => {
-      const { data } = await sb.auth.getSession();
-      const userEmail = data.session?.user?.email || '';
-      setIsAdmin(userEmail.length > 0 && userEmail === adminEmail);
+      if (sb) {
+        const { data } = await sb.auth.getSession();
+        const userEmail = data.session?.user?.email || '';
+        setIsAdmin(userEmail.length > 0 && userEmail === adminEmail);
+      }
+      // Always load tracks — celestial tracks show even without Supabase
       await loadTracks();
     };
 
-    init();
+    void init();
   }, [loadTracks]);
 
   const handleAdminLogin = async () => {
