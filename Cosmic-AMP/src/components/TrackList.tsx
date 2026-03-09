@@ -61,7 +61,7 @@ export const TrackList: React.FC<TrackListProps> = ({
             <div className="flex items-center gap-3 overflow-hidden">
               <button
                 disabled={locked}
-                onClick={() => onPlay(track)}
+                onClick={(e) => { e.stopPropagation(); onPlay(track); }}
                 className={cn(
                   "p-2 rounded-full transition-colors",
                   isActive ? "text-[var(--cp-accent-amber-400)]" : "text-[var(--cp-text-secondary)] hover:text-[var(--cp-text-primary)]",

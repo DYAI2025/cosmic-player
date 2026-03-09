@@ -1,8 +1,9 @@
 /**
 Cyberpunk Neural Design System
 Embeddable CSS Theme - Copy & Paste anywhere
+Fix #4: :root tokens are canonical in index.css — scope only to .cyberpunk-theme here.
 */
-:root, .cyberpunk-theme {
+.cyberpunk-theme {
 /* ===== COLORS ===== */
 --cp-bg-primary: #0A0A0F;
 --cp-bg-secondary: #121218;

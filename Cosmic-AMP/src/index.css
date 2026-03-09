@@ -64,34 +64,40 @@
   }
 }
 
-body {
-  background-color: var(--cp-bg-primary);
-  color: var(--cp-text-primary);
-  font-family: var(--cp-font-body);
-  font-size: var(--cp-text-base);
-  line-height: 1.5;
-  margin: 0;
-  overflow: hidden; /* For full screen app feel */
+/* Fix #4 (Tailwind v4): wrap global element styles in @layer base so
+   Tailwind utilities can override them when needed */
+@layer base {
+  body {
+    background-color: var(--cp-bg-primary);
+    color: var(--cp-text-primary);
+    font-family: var(--cp-font-body);
+    font-size: var(--cp-text-base);
+    line-height: 1.5;
+    margin: 0;
+    overflow: hidden; /* For full screen app feel */
+  }
+
+  /* ===== SCANLINE OVERLAY ===== */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(255, 165, 0, 0.03) 2px,
+      rgba(255, 165, 0, 0.03) 4px
+    );
+    z-index: 9999;
+    opacity: 0.5;
+  }
 }
 
-/* ===== SCANLINE OVERLAY ===== */
-body::before {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(255, 165, 0, 0.03) 2px,
-    rgba(255, 165, 0, 0.03) 4px
-  );
-  z-index: 9999;
-  opacity: 0.5;
-}
-
-/* ===== COMPONENT CLASSES ===== */
+/* Fix #4 (Tailwind v4): wrap component classes in @layer components so
+   Tailwind utilities (e.g. hover:, hidden) can override them */
+@layer components {
 .cp-card {
   background: var(--cp-bg-surface);
   border: var(--cp-border-circuit);
@@ -167,8 +173,10 @@ body::before {
   cursor: not-allowed;
   pointer-events: none;
 }
+} /* end @layer components */
 
 /* ===== ANIMATIONS ===== */
+/* @keyframes and animation utilities live outside layers so they are globally accessible */
 @keyframes cp-pulse {
   0%, 100% { opacity: 1; }
   50% { opacity: 0.5; }
@@ -184,14 +192,14 @@ body::before {
   50% { transform: translateY(-10px); }
 }
 
-.cp-animate-pulse {
+@utility cp-animate-pulse {
   animation: cp-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
 
-.cp-animate-glow {
+@utility cp-animate-glow {
   animation: cp-glow 3s ease-in-out infinite alternate;
 }
 
-.cp-animate-float {
+@utility cp-animate-float {
   animation: cp-float 6s ease-in-out infinite;
 }

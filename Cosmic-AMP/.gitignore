@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Environment variables — never commit secrets
+.env
+.env.local
+.env.*.local
+
+# Build output
+dist/
+
+# Vite / editor
+.vite/
+.DS_Store
+*.local

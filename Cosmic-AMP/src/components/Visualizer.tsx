@@ -8,7 +8,15 @@ interface VisualizerProps {
 export const Visualizer: React.FC<VisualizerProps> = ({ analyser, isPlaying }) => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animationRef = useRef<number | null>(null);
+  // Fix #2: track isPlaying via ref so the RAF loop can read it without restarting
+  const isPlayingRef = useRef(isPlaying);
 
+  // Fix #2: sync ref on every render without restarting the RAF loop
+  useEffect(() => {
+    isPlayingRef.current = isPlaying;
+  }, [isPlaying]);
+
+  // Fix #2: depend only on analyser — loop runs once and reads isPlayingRef internally
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas || !analyser) return;
@@ -42,7 +50,15 @@ export const Visualizer: React.FC<VisualizerProps> = ({ analyser, isPlaying }) =
     let rot = 0;
 
     const render = () => {
-      analyser.getByteFrequencyData(dataArray);
+      // Fix #2: only sample live frequency data when audio is playing
+      if (isPlayingRef.current) {
+        analyser.getByteFrequencyData(dataArray);
+      } else {
+        // Gradually decay toward silence for a smooth idle state
+        for (let i = 0; i < dataArray.length; i++) {
+          dataArray[i] = Math.max(0, dataArray[i] - 4);
+        }
+      }
 
       // Clear canvas with fade effect for trails
       ctx.fillStyle = 'rgba(10, 10, 15, 0.2)'; 
@@ -197,7 +213,7 @@ export const Visualizer: React.FC<VisualizerProps> = ({ analyser, isPlaying }) =
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, [analyser, isPlaying]);
+  }, [analyser]); // Fix #2: only restart when analyser changes, not on every isPlaying toggle
 
   return (
     <canvas

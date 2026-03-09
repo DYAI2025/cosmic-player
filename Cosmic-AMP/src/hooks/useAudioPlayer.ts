@@ -16,6 +16,8 @@ export const useAudioPlayer = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [volume, setVolume] = useState(0.5);
+  // Fix #1: expose analyser via state so consumers re-render once it's ready
+  const [analyserNode, setAnalyserNode] = useState<AnalyserNode | null>(null);
 
   const audioContextRef = useRef<AudioContext | null>(null);
   const analyserRef = useRef<AnalyserNode | null>(null);
@@ -33,6 +35,8 @@ export const useAudioPlayer = () => {
         const analyser = ctx.createAnalyser();
         analyser.fftSize = 2048; 
         analyserRef.current = analyser;
+        // Fix #1: trigger re-render so consumers receive the live AnalyserNode
+        setAnalyserNode(analyser);
 
         const audio = new Audio();
         audio.crossOrigin = "anonymous";
@@ -135,7 +139,7 @@ export const useAudioPlayer = () => {
     currentTime,
     duration,
     volume,
-    analyser: analyserRef.current,
+    analyser: analyserNode, // Fix #1: state-derived, always current value
     playTrack,
     togglePlay,
     setVolume: setAudioVolume,

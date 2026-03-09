@@ -52,11 +52,11 @@ export const PlayerControls: React.FC<PlayerControlsProps> = ({
       >
         <div 
           className="absolute top-0 left-0 h-full bg-[var(--cp-accent-amber-500)] rounded-full transition-all duration-100 ease-linear shadow-[var(--cp-glow-md)]"
-          style={{ width: `${(currentTime / duration) * 100}%` }}
+          style={{ width: `${duration > 0 ? (currentTime / duration) * 100 : 0}%` }}
         />
         <div 
             className="absolute top-1/2 -translate-y-1/2 w-3 h-3 bg-[var(--cp-text-primary)] rounded-full opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
-            style={{ left: `${(currentTime / duration) * 100}%` }}
+            style={{ left: `${duration > 0 ? (currentTime / duration) * 100 : 0}%` }}
         />
       </div>
       
